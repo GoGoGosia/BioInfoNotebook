@@ -39,7 +39,7 @@
                 </ListBox>
 
                 <StackPanel Grid.Row="3" Spacing="8" Margin="0,15,0,0">
-                    <TextBox Text="{Binding NowyTytulSesji}" Watermark="Tytu³ nowej sesji..." Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" />
+                    <TextBox Text="{Binding NowyTytulSesji}" PlaceholderText="Tytu³ nowej sesji..." Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" />
                     <Button Content="+ Nowa Sesja" Command="{Binding DodajSesjeCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#1E824C" Foreground="White" FontWeight="Bold" Height="35" />
                     <Button Content="Usuñ zaznaczon¹" Command="{Binding UsunSesjeCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#7B241C" Foreground="White" FontSize="12" Height="28" />
                 </StackPanel>
@@ -101,7 +101,7 @@
             <Border Grid.Row="2" Background="#142219" CornerRadius="8" Padding="15" BorderBrush="#1F3627" BorderThickness="1" IsEnabled="{Binding CzySesjaWybrana}">
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
                     <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Nowy wpis w dokumentacji analizy" FontSize="12" FontWeight="Bold" Foreground="#8BA394" Margin="0,0,0,8" />
-                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding NowaTrescWpisu}" Watermark="Wpisz opis dzia³añ, wyniki algorytmów lub uwagi..." Height="60" AcceptsReturn="True" TextWrapping="Wrap" Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding NowaTrescWpisu}" PlaceholderText="Wpisz opis dzia³añ, wyniki algorytmów lub uwagi..." Height="60" AcceptsReturn="True" TextWrapping="Wrap" Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" Margin="0,0,10,0" />
                     <Button Grid.Row="1" Grid.Column="1" Content="Dodaj Wpis" Command="{Binding DodajWpisCommand}" Background="#27ae60" Foreground="White" FontWeight="Bold" Height="60" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                 </Grid>
             </Border>

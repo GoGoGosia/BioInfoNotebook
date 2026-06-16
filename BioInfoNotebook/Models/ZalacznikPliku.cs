@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace lab12_BioInfoNotebook.Models
+namespace  BioInfoNotebook.Models
 {
     [SQLite.Table("ZalacznikiPlikow")]
     public class ZalacznikPliku
