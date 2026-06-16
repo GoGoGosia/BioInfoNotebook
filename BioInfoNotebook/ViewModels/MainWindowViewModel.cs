@@ -18,47 +18,29 @@ namespace BioInfoNotebook.ViewModels
     {
         private readonly DatabaseService _dbService;
 
-        // Lista sesji widoczna w lewym panelu bocznym
         [ObservableProperty]
         private ObservableCollection<SesjaAnalityczna> _widoczneSesje = new();
 
-        // Obecnie kliknięta/wybrana sesja przez biologa
         [ObservableProperty]
         private SesjaAnalityczna? _wybranaSesja;
 
-        // Pole tekstowe do wpisywania tytułu nowej sesji
         [ObservableProperty]
         private string _nowyTytulSesji = string.Empty;
 
-        // Dynamiczna lista notatek laboratoryjnych powiązanych z aktywną sesją
         [ObservableProperty]
         private ObservableCollection<WpisDisplayModel> _wpisyAktywnejSesji = new();
 
-        // Pole tekstowe nowej notatki laboratoryjnej
         [ObservableProperty]
         private string _nowaTrescWpisu = string.Empty;
 
-        // Właściwość sprawdzająca, czy przyciski edycji mają być aktywne
         public bool CzySesjaWybrana => WybranaSesja != null;
 
         public MainWindowViewModel()
         {
             _dbService = new DatabaseService();
 
-            try
-            {
-                var propertyLicencji = typeof(QuestPDF.Settings).GetProperty("License");
-                if (propertyLicencji != null)
-                {
-                    var typEnuma = propertyLicencji.PropertyType;
-                    var wartoscCommunity = System.Enum.Parse(typEnuma, "Community");
-                    propertyLicencji.SetValue(null, wartoscCommunity);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Błąd licencji PDF: {ex.Message}");
-            }
+            // ROZWIĄZANIE PROBLEMU Z LICENCJĄ: W wersji 2024+ używa się LicenseType!
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
             _ = ZaladujSesjeAsync();
         }
@@ -245,7 +227,6 @@ namespace BioInfoNotebook.ViewModels
                                 .FontSize(20).Bold().FontColor(Colors.Green.Darken3);
                             col.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten1);
                             col.Item().PaddingTop(6).Text($"Temat: {tytulSesji}").FontSize(14).Bold();
-
                             col.Item().Text($"Wygenerowano: {dataSesji:dd.MM.yyyy HH:mm}").FontSize(10).FontColor(Colors.Grey.Darken1);
                             col.Item().PaddingBottom(15);
                         });

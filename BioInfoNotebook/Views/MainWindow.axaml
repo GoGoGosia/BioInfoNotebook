@@ -1,4 +1,4 @@
-<Window xmlns="https://github.com/avaloniaui"
+ï»¿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:BioInfoNotebook.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -39,9 +39,9 @@
                 </ListBox>
 
                 <StackPanel Grid.Row="3" Spacing="8" Margin="0,15,0,0">
-                    <TextBox Text="{Binding NowyTytulSesji}" PlaceholderText="Tytu³ nowej sesji..." Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" />
+                    <TextBox Text="{Binding NowyTytulSesji}" PlaceholderText="TytuÅ‚ nowej sesji..." Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" />
                     <Button Content="+ Nowa Sesja" Command="{Binding DodajSesjeCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#1E824C" Foreground="White" FontWeight="Bold" Height="35" />
-                    <Button Content="Usuñ zaznaczon¹" Command="{Binding UsunSesjeCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#7B241C" Foreground="White" FontSize="12" Height="28" />
+                    <Button Content="UsuÅ„ zaznaczonÄ…" Command="{Binding UsunSesjeCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#7B241C" Foreground="White" FontSize="12" Height="28" />
                 </StackPanel>
             </Grid>
         </Border>
@@ -51,7 +51,7 @@
             <Border Grid.Row="0" Background="#142219" CornerRadius="8" Padding="15" Margin="0,0,0,15" BorderBrush="#1F3627" BorderThickness="1">
                 <Grid ColumnDefinitions="*,Auto">
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="{Binding WybranaSesja.TytulSesji, FallbackValue='Wybierz lub utwórz sesjê z panelu obok'}" FontSize="20" FontWeight="Bold" Foreground="White" />
+                        <TextBlock Text="{Binding WybranaSesja.TytulSesji, FallbackValue='Wybierz lub utwÃ³rz sesjÄ™ z panelu obok'}" FontSize="20" FontWeight="Bold" Foreground="White" />
                         <TextBlock Text="{Binding WybranaSesja.DataUtworzenia, StringFormat='Data utworzenia: {0:dd.MM.yyyy HH:mm}', FallbackValue=''}" FontSize="12" Foreground="#8BA394" Margin="0,4,0,0" />
                     </StackPanel>
                     <Button Grid.Column="1" Content="Generuj Raport PDF" Command="{Binding EksportujPdfCommand}" IsEnabled="{Binding CzySesjaWybrana}" Background="#00FF88" Foreground="#0E1611" FontWeight="Bold" Padding="15,8" CornerRadius="5" />
@@ -65,12 +65,12 @@
                             <Border Background="#182A1F" BorderBrush="#254230" BorderThickness="1" CornerRadius="6" Padding="15" Margin="0,0,0,10">
                                 <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto">
                                     <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding DataDodania, StringFormat='{}{0:dd.MM.yyyy HH:mm:ss}'}" FontSize="11" Foreground="#00FF88" FontWeight="Bold" />
-                                    <Button Grid.Row="0" Grid.Column="1" Content="Usuñ wpis" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).UsunWpisCommand}" CommandParameter="{Binding}" Background="Transparent" Foreground="#EC7063" FontSize="11" Padding="0" Margin="0,-5,0,0" />
+                                    <Button Grid.Row="0" Grid.Column="1" Content="UsuÅ„ wpis" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).UsunWpisCommand}" CommandParameter="{Binding}" Background="Transparent" Foreground="#EC7063" FontSize="11" Padding="0" Margin="0,-5,0,0" />
                                     
                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding TrescWpisu}" Foreground="White" TextWrapping="Wrap" Margin="0,8,0,8" FontSize="14" />
                                     
                                     <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8" Margin="0,5,0,0">
-                                        <TextBlock Text="Za³¹czniki:" FontSize="12" Foreground="#8BA394" VerticalAlignment="Center" />
+                                        <TextBlock Text="ZaÅ‚Ä…czniki:" FontSize="12" Foreground="#8BA394" VerticalAlignment="Center" />
                                         <Button Content="+ Dodaj plik (FASTA/CSV/PNG)" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).DodajZalacznikCommand}" CommandParameter="{Binding}" Background="#254230" Foreground="#A3E4D7" FontSize="11" Padding="8,4" />
                                         
                                         <ItemsControl ItemsSource="{Binding Zalaczniki}">
@@ -101,7 +101,7 @@
             <Border Grid.Row="2" Background="#142219" CornerRadius="8" Padding="15" BorderBrush="#1F3627" BorderThickness="1" IsEnabled="{Binding CzySesjaWybrana}">
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
                     <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Nowy wpis w dokumentacji analizy" FontSize="12" FontWeight="Bold" Foreground="#8BA394" Margin="0,0,0,8" />
-                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding NowaTrescWpisu}" PlaceholderText="Wpisz opis dzia³añ, wyniki algorytmów lub uwagi..." Height="60" AcceptsReturn="True" TextWrapping="Wrap" Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding NowaTrescWpisu}" PlaceholderText="Wpisz opis dziaÅ‚aÅ„, wyniki algorytmÃ³w lub uwagi..." Height="60" AcceptsReturn="True" TextWrapping="Wrap" Background="#1A2D21" BorderBrush="#2C4C38" Foreground="White" Margin="0,0,10,0" />
                     <Button Grid.Row="1" Grid.Column="1" Content="Dodaj Wpis" Command="{Binding DodajWpisCommand}" Background="#27ae60" Foreground="White" FontWeight="Bold" Height="60" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                 </Grid>
             </Border>
